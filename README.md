@@ -1,7 +1,7 @@
 # RESTful
 An internet portal providing RESTful web services using SpringMVC and AngularJS
 
-## Technology used in project:
+## Technology used in project
 
 ### Backend
 - Java EE
