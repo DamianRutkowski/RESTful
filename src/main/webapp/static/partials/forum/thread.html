@@ -1,0 +1,25 @@
+<h4>{{thread.subject}}</h4>
+<div ng-repeat="post in thread.posts | orderBy:'id'">
+    <div class="comment-header-border">
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: post.user.username})">
+            {{post.user.username}}
+        </a>
+    </div>
+    <p class="comment-date pull-left">
+        , {{post.creationDate | date:'medium'}}
+    </p>
+
+<br/>
+<hr class="hr-custom"/>
+
+<pre>{{post.content}}</pre>
+<br/> <br/>
+</div>
+
+<div ng-show="authenticated" ng-model="newComment">
+    <h4>Add new post:</h4>
+    <hr/>
+    <textarea class="form-control comment-input" rows="3" ng-model="newPost.content"></textarea>
+    <br/>
+    <button class="btn btn-primary pull-right" ng-click="add(newPost)">Submit</button>
+</div>

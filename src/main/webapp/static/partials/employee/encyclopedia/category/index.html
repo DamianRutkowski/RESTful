@@ -1,0 +1,33 @@
+<h3>Category</h4>
+
+
+<button class="btn" ui-sref="employee.encyclopedia.category.add">Add category</button>
+
+<div ui-view></div>
+
+<br />
+
+<table class="table">
+    <thead>
+    <tr class="tab-header-area">
+        <td>#</td>
+        <td>Tag-Name</td>
+        <td>Name</td>
+        <td>Edit</td>
+        <td>Remove</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="category in categories" class="tab-content-area">
+        <td>{{category.id}}</td>
+        <td>{{category.tagName}}</td>
+        <td>{{category.name}}</td>
+        <td><a href="" ng-click="setCategory(category)" ui-sref="employee.encyclopedia.category.edit">
+   <span class="glyphicon glyphicon-edit"></span></a></td>
+       </a></td>
+        <td><a href="" ng-click="remove(category.id)">
+           <span class="glyphicon glyphicon-remove"></span></a></td>
+       </a> </td>
+    </tr>
+    </tbody>
+</table>

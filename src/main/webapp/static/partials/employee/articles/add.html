@@ -1,0 +1,25 @@
+<h5>Add article</h5>
+<hr />
+
+<form ng-model="newArticle">
+    <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input id="subject" class="form-control" ng-model="newArticle.subject">
+    </div>
+    <div class="form-group">
+        <label for="tagName">Tag name:</label>
+        <input id="tagName" class="form-control" ng-model="newArticle.tagName">
+    </div>
+    <div class="form-group">
+        <label for="teaser">Teaser:</label>
+        <textarea class="form-control article-input" rows="8" id="teaser" ng-model="newArticle.teaser"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea id="content" class="form-control article-input" rows="15" ng-model="newArticle.content"></textarea>
+    </div>
+  <button class="btn btn-primary pull-right" ng-click="add(newArticle)">Submit</button>
+</form>
+
+<br />
+<hr />

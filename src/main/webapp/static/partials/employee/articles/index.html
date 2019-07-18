@@ -1,0 +1,34 @@
+<button class="btn" ui-sref="employee.article.add">Add article</button>
+
+<div ui-view></div>
+
+<br />
+
+<table class="table">
+    <thead>
+    <tr class="tab-header-area">
+        <td>#</td>
+        <td>Subject</td>
+        <td>Author</td>
+        <td>Edit</td>
+        <td>Remove</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="article in articles" class="tab-content-area">
+        <td>{{article.id}}</td>
+        <td>{{article.subject}}</td>
+        <td>
+            <a class="pull-left username-link" href="" ui-sref="userProfile({username: article.author.username})">
+                {{article.author.username}}
+            </a>
+        </td>
+        
+        <td><a href="" ng-click="setArticle(article)" ui-sref="employee.article.edit">
+         <span class="glyphicon glyphicon-edit"></span></a></td>
+        
+        <td><a href="" ng-click="remove(article.tagName)">
+         <span class="glyphicon glyphicon-remove"></span></a></td>
+    </tr>
+    </tbody>
+</table>

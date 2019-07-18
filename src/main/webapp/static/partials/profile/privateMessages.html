@@ -1,0 +1,60 @@
+<h3>Private messages</h3>
+
+<div ng-repeat="comment in profileMessages" class="div-comments">
+    <div class="comment-header-border">
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: comment.author.username})">
+            {{comment.author.username}}
+        </a>
+
+        <p class="comment-date pull-left">
+            , {{comment.creationDate | date:'medium'}}
+        </p>
+    </div>
+
+    <br/>
+    <hr class="hr-custom"/>
+
+    <pre>{{comment.content}}</pre>
+    <br/> <br/>
+</div>
+<h4>Received</h4>
+<b><p ng-show="pmReceived.length == 0">There are no messages.</p></b>
+<div ng-repeat="pm in pmReceived" class="div-comments">
+    <div class="comment-header-border">
+        <h5>{{pm.subject}}</h5>
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: pm.sender.username})">
+            {{pm.sender.username}}
+        </a>
+
+        <p class="comment-date pull-left">
+            , {{pm.creationDate | date:'medium'}}
+        </p>
+    </div>
+
+    <br/>
+    <hr class="hr-custom"/>
+
+    <pre>{{pm.content}}</pre>
+    <br/> <br/>
+</div>
+
+<h4>Sent</h4>
+<b><p ng-show="pmSent.length == 0">There are no messages.</p></b>
+<div ng-repeat="pm in pmSent" class="div-comments">
+    <div class="comment-header-border">
+        <h5>{{pm.subject}}</h5>
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: pm.recipient.username})">
+            {{pm.recipient.username}}
+        </a>
+
+        <p class="comment-date pull-left">
+            , {{pm.creationDate | date:'medium'}}
+        </p>
+    </div>
+
+    <br/>
+    <hr class="hr-custom"/>
+
+    <pre>{{pm.content}}</pre>
+    <br/> <br/>
+</div>

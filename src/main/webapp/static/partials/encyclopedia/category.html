@@ -1,0 +1,18 @@
+<h3 class="auctionCategory-header">{{currentCategory.name}}</h4>
+<hr />
+<br />
+
+<div ng-repeat="weapon in categoryWeapons | filter: search">
+    <div class="row">
+        <div class="pull-left">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR_qJBxcCx7xSdrXRM7OP4-id2lnKYycRnaz06bkx5uZJJ6udFEuw"
+                 width="128" height="96">
+        </div>
+        <div class="pull-left">
+            <a class="products-link" href="" ui-sref="encyclopediaDetail({tagName: weapon.tagName})">{{weapon.name}}</a>
+        </div>
+    </div>
+    <div class="row">
+        <hr/>
+    </div>
+</div>

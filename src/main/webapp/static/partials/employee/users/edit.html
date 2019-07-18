@@ -1,0 +1,47 @@
+<h5>Edit user: <b>{{user.username}}</b></h5>
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>
+        Username:
+    </dt>
+    <dd>
+        {{user.username}}
+    </dd>
+
+    <dt>
+        E-Mail:
+    </dt>
+    <dd>
+        {{user.email}}
+    </dd>
+
+    <dt>
+        First Name:
+    </dt>
+    <dd>
+        {{user.firstName}}
+    </dd>
+
+    <dt>
+        Last Name:
+    </dt>
+    <dd>
+        {{user.lastName}}
+    </dd>
+
+    <dt>
+        Address:
+    </dt>
+    <dd>
+        {{user.address}}
+    </dd>
+</dl>
+
+<form ng-model="user">
+    <input type="checkbox" ng-model="user.enabled"> Enabled <br />
+    <input type="checkbox" ng-model="user.accountNonLocked"> Account locked <br /> <br />
+    <button class="btn btn-primary" ng-click="edit(user)">Submit</button>
+</form>
+
+<hr />

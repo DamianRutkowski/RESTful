@@ -1,0 +1,37 @@
+<h3>Weapon</h4>
+
+
+<button class="btn" ui-sref="employee.encyclopedia.weapon.add">Add weapon</button>
+
+<div ui-view></div>
+
+<br />
+
+<table class="table">
+    <thead>
+    <tr class="tab-header-area">
+        <td>#</td>
+        <td>Tag Name</td>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Edit</td>
+        <td>Remove</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="weapon in weapons" class="tab-content-area">
+        <td>{{weapon.id}}</td>
+        <td>{{weapon.tagName}}</td>
+        <td>{{weapon.name}}</td>
+        <td>{{weapon.weaponCategory.name}}</td>
+        
+        <td><a href="" ng-click="setWeapon(weapon)" ui-sref="employee.encyclopedia.weapon.edit">
+           <span class="glyphicon glyphicon-edit"></span></a></td>
+       </a></td>
+       
+        <td><a href="" ng-click="remove(weapon.tagName)">
+           <span class="glyphicon glyphicon-remove"></span></a></td>
+       </a> </td>
+    </tr>
+    </tbody>
+</table>

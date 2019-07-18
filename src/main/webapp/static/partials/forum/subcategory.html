@@ -1,0 +1,28 @@
+<button class="btn" ng-show="authenticated" ng-click="isNewThreadFormOpen = !isNewThreadFormOpen">Create thread</button>
+<br />
+
+<form ng-model="newThread" ng-show="authenticated && isNewThreadFormOpen">
+    <br />
+    <h3>Create thread</h3>
+    <hr />
+
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" name="subject" ng-model="newThread.subject">
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea id="content" class="form-control comment-input" rows="3" ng-model="postContent"></textarea>
+    </div>
+    <button class="btn btn-primary pull-right" ng-click="add(newThread)">Submit</button>
+
+   <br/> <br />
+    <hr />
+</form>
+
+<h3>{{category.name}}</h3>
+<hr/>
+<div ng-repeat="thread in threads">
+    <a ui-sref="thread({id: thread.id})">{{thread.subject}}</a>
+    <hr />
+</div>

@@ -1,0 +1,75 @@
+<div ui-view></div>
+
+<h3>Users</h4>
+<hr/>
+
+<table class="table">
+    <thead>
+    <tr class="tab-header-area">
+        <td>#</td>
+        <td>Username</td>
+        <td>E-Mail</td>
+        <td>Enabled</td>
+        <td>Account locked</td>
+        <td>Roles</td>
+        <td>Edit</td>
+        <td>Remove</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users" class="tab-content-area">
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td><input type="checkbox" ng-model="user.enabled" disabled/></td>
+        <td><input type="checkbox" ng-model="user.accountNonLocked" disabled/></td>
+      <td> <p ng-repeat="role in user.roles"> {{role.name}}</p></td>      
+        <td>
+        <a href="" ng-click="setUser(user)" ui-sref="admin.edit">
+        <span class="glyphicon glyphicon-edit"></span>
+        </a>
+        </td>
+        
+        <td>
+        <a href="" ng-click="remove(user.username)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br/><br />
+
+<h3>Employees</h3><hr/>
+
+<table class="table">
+    <thead>
+    <tr class="tab-header-area">
+        <td>#</td>
+        <td>Username</td>
+        <td>E-Mail</td>
+        <td>Enabled</td>
+        <td>Account locked</td>
+        <td>Roles</td>
+        <td>Edit</td>
+        <td>Remove</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="employee in employees" class="tab-content-area">
+        <td>{{employee.id}}</td>
+        <td>{{employee.username}}</td>
+        <td>{{employee.email}}</td>
+        <td><input type="checkbox" ng-model="employee.enabled" disabled/></td>
+        <td><input type="checkbox" ng-model="employee.accountNonLocked" disabled /></td>
+        <td> <p ng-repeat="role in employee.roles"> {{role.name}}</p></td>        
+        
+        <td><a href="" ng-click="setUser(employee)" ui-sref="admin.edit">
+          <span class="glyphicon glyphicon-edit"></span></a></td>
+        
+        <td><a href="" ng-click="remove(employee.username)">        
+          <span class="glyphicon glyphicon-remove"></span></a></td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="jpa-persistence"
+		transaction-type="RESOURCE_LOCAL">
+		<class>com.guns.model.admin.encyclopedia.WeaponCategory</class>
+		<class>com.guns.model.admin.encyclopedia.Weapon</class>
+		<class>com.guns.model.admin.encyclopedia.WeaponComment</class>
+		<class>com.guns.model.admin.forum.ForumCategory</class>
+		<class>com.guns.model.admin.forum.ForumSubcategory</class>
+		<class>com.guns.model.admin.forum.Post</class>
+		<class>com.guns.model.admin.forum.Thread</class>
+		<class>com.guns.model.admin.home.Article</class>
+		<class>com.guns.model.admin.home.ArticleComment</class>
+		<class>com.guns.model.admin.user.User</class>
+		<class>com.guns.model.admin.user.Role</class>
+		<class>com.guns.model.admin.user.UserMessage</class>
+		<class>com.guns.model.admin.user.PrivateMessage</class>
+
+		<properties>
+			<!-- local configuration -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/guns" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.connection.CharSet" value="utf8" />
+			<property name="hibernate.connection.characterEncoding" value="utf8" />
+			<property name="hibernate.connection.useUnicode" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

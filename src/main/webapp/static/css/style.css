@@ -1,0 +1,84 @@
+a {
+    color: black;
+}
+
+a:hover {
+    color: #D10000;
+}
+
+a:focus {
+    color: #D10000
+}
+
+body {
+    background-color: white;
+}
+
+.article-header {
+
+}
+
+.hr-custom {
+    color: #D10000;
+}
+
+.div-comments {
+
+}
+
+.username-link {
+
+}
+
+.comment-date {
+
+}
+
+.comment-header-border {
+
+}
+
+.comment-input {
+    padding: 1px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+.forumCategory-header {
+    display: inline;
+}
+
+.article-content {
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+.auction-content {
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+.article-input {
+    padding: 1px;
+    width: 100%;
+    resize: none;
+}
+
+.auction-input {
+    padding: 1px;
+    width: 100%;
+    resize: none;
+}
+
+.auctionCategory-header {
+    display: inline;
+}
+
+.bg-red {
+    background-color: #a94442;
+}
+
+.bg-white {
+    background-color: white;
+}

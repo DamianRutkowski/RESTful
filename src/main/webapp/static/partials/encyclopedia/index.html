@@ -1,0 +1,16 @@
+<div class="col-md-2">
+<h4>Categories:</h4>
+<hr />
+    <div class="list-group">
+        <div ng-repeat="category in categories">
+            <a class="products-link" ui-sref="encyclopedia.category({tagName: category.tagName})">{{category.name}}</a>
+            <br />
+        </div>
+    </div>
+</div>
+<div class="col-md-8">
+    <div ui-view></div>
+</div>
+<div class="col-md-2">
+    <input type="text" class="form-control" ng-model="search" placeholder="Search...">
+</div>

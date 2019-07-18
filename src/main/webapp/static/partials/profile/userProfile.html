@@ -1,0 +1,151 @@
+<h3>User profile</h3>
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>
+        Username:
+    </dt>
+    <dd>
+        {{user.username}}
+    </dd>
+
+    <dt>
+        E-Mail:
+    </dt>
+    <dd>
+        {{user.email}}
+    </dd>
+
+    <dt>
+        First Name:
+    </dt>
+    <dd>
+        {{user.firstName}}
+    </dd>
+
+    <dt>
+        Last Name:
+    </dt>
+    <dd>
+        {{user.lastName}}
+    </dd>
+
+    <dt>
+        Address:
+    </dt>
+    <dd>
+        {{user.address}}
+    </dd>
+</dl>
+<br/><br/>
+
+
+<div ng-show="userPrincipal.username != user.username">
+    <button class="btn" ng-show="authenticated" ng-click="isPmFormEnabled = !isPmFormEnabled">Send private message</button>
+    <br /><br />
+   
+    <form ng-model="privateMessage" ng-show="isPmFormEnabled">
+         <input class="form-control" rows="2" ng-model="privateMessage.content"/> <br/>
+        <button class="btn btn-primary pull-right" ng-click="sendPW(privateMessage)">Submit</button>
+    </form>
+    <br/>    
+    <hr/>
+</div>
+
+<h4>Comments</h4>
+<b><p ng-show="profileMessages.length == 0">There are no comments yet.</p></b>
+<div ng-repeat="comment in profileMessages" class="div-comments">
+    <div class="comment-header-border">
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: comment.author.username})">
+            {{comment.author.username}}
+        </a>
+
+        <p class="comment-date pull-left">
+            , {{comment.creationDate | date:'medium'}}
+        </p>
+    </div>
+
+    <br/>
+    <hr class="hr-custom"/>
+
+    <pre>{{comment.content}}</pre>
+    <br/> <br/>
+</div>
+<div ng-show="authenticated && userPrincipal.username != user.username" ng-model="newComment">
+    <hr/>
+    <h4>Add new comment:</h4>
+    <hr/>
+    <textarea class="form-control comment-input" rows="3" ng-model="newComment.content"></textarea>
+    <br/>
+    <button class="btn btn-primary pull-right" ng-click="add(newComment)">Submit</button>
+</div>
+
+
+<!-- 
+<div ng-show="userPrincipal.username == user.username">
+    <h4>Auctions</h4>
+
+    <h4>Bought</h4>
+    <b><p ng-show="auctionsBought.length == 0">There are no auctions.</p></b>
+    <table class="table">
+        <thead>
+        <tr class="tab-header-area">
+            <td>#</td>
+            <td>Seller</td>
+            <td>Auction</td>
+            <td>Date</td>
+            <td>Status</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="auction in auctionsBought" class="tab-content-area">
+            <td></td>
+            <td>
+                <a class="pull-left username-link" href="" ui-sref="userProfile({username: article.author.username})">
+                    {{auction.seller.username}}
+                </a>
+            </td>
+            <td>
+                <a class="pull-left username-link" href="" ui-sref="auctionDetail({id: auction.auctionID})">
+                    {{auction.auctionID}}
+                </a>
+            </td>
+            <td>{{auction.creationDate | date:'medium'}}</td>
+            <td>{{auction.orderStatus.orderStatus}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>Sold</h4>
+    <b><p ng-show="auctionsSold.length == 0">There are no auctions.</p></b>
+    <table class="table">
+        <thead>
+        <tr class="tab-header-area">
+            <td>#</td>
+            <td>Seller</td>
+            <td>Auction</td>
+            <td>Date</td>
+            <td>Status</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="auction in auctionsBought" class="tab-content-area">
+            <td></td>
+            <td>
+                <a class="pull-left username-link" href="" ui-sref="userProfile({username: article.author.username})">
+                    {{auction.seller.username}}
+                </a>
+            </td>
+            <td>
+                <a class="pull-left username-link" href="" ui-sref="auctionDetail({id: auction.auctionID})">
+                    {{auction.auctionID}}
+                </a>
+            </td>
+            <td>{{auction.creationDate | date:'medium'}}</td>
+            <td>{{auction.orderStatus.orderStatus}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+-->

@@ -1,0 +1,21 @@
+
+<div ng-repeat="article in articles">
+    <div>
+        <h4 class="article-header">
+            {{article.subject}}
+        </h4>
+        <p>
+            {{article.teaser}}
+        </p>
+        <br />
+        <p class="pull-left">
+            {{article.modifyDate | date:'medium'}}
+        </p>
+        <p>
+            <a class="pull-right" href="" ui-sref="article({tagName:article.tagName})">Read more</a>
+        </p>
+    </div>
+    <br />    
+    <hr />
+    <br />
+</div>

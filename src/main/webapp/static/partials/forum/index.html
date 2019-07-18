@@ -1,0 +1,75 @@
+<div ng-show="checkAuthority('ROLE_EMPLOYEE')">
+    <button class="btn" ng-click="isNewCategoryFormOpen = !isNewCategoryFormOpen">
+        Add category
+    </button>
+<br />
+
+    <form ng-model="category" ng-show="isNewCategoryFormOpen">
+    <br />
+    <h3>Add category</h3>
+    <hr />
+    
+        <div class="form-group">
+            <label for="categoryName">Name:</label>
+            <input type="text" class="form-control" id="categoryName" ng-model="category.name">
+        </div>
+        
+        <button class="btn btn-primary pull-right" ng-click="addCategory(category)">Submit</button>       
+        
+
+    <br/> <br />
+    <hr />
+    </form>
+</div>
+
+<br/><br/>
+
+<div ng-repeat="category in categories">
+    <h3 class="forumCategory-header">{{category.name}}</h3>     <!--inline header-->
+
+    <div class="forumCategory-header" ng-show="checkAuthority('ROLE_EMPLOYEE')">
+        <button class="btn pull-right" ng-click="isNewSubcategoryFormOpen = !isNewSubcategoryFormOpen">Add subcategory</button>
+
+        <p class="pull-right">&nbsp;</p>
+        <button class="btn pull-right" ng-click="removeCategory(category.id)">Remove</button>
+
+        <p class="pull-right">&nbsp;</p>
+        <button class="btn pull-right" ng-click="isCategoryEditFormOpen = !isCategoryEditFormOpen">Edit</button>
+
+        <form ng-model="category" ng-show="isCategoryEditFormOpen">
+        <br /> 
+        <h3>Edit category</h3>
+        <hr />        
+            <div class="form-group">
+                <label for="editCategoryName">Name:</label>
+                <input type="text" class="form-control" id="editCategoryName" ng-model="category.name">
+            </div>
+            <button class="btn btn-primary pull-right" ng-click="editCategory(category)">Submit</button>
+            <br />
+        </form>
+
+        <form ng-model="newSubcategory" ng-show="isNewSubcategoryFormOpen">
+        <br />
+        <h3>Add subcategory</h3>
+        <hr />
+            <div class="form-group">
+                <label for="newSubcategoryName">Name:</label>
+                <input type="text" class="form-control" id="newSubcategoryName" ng-model="newSubcategory.name">
+            </div>
+            <div class="form-group">
+                <label for="tagName">Tag name:</label>
+                <input type="text" class="form-control" id="tagName" ng-model="newSubcategory.tagName">
+            </div>
+            <button class="btn btn-primary pull-right" ng-click="addSubcategory(newSubcategory, category)">Submit</button>
+            <br />
+        </form>
+    </div>
+    <br/>
+    <hr/>
+
+    <div ng-repeat="subcategory in category.subcategory">
+        <a ui-sref="forumSubcategory({tagName: subcategory.tagName})">{{subcategory.name}}</a>
+    </div>
+
+    <br/><br/><br/>
+</div>

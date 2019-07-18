@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <title>Guns</title>
+
+    <meta charset="UTF-8">
+    <meta name="author" content="Damian Rutkowski">
+
+    <link rel="icon" href="imgs/favicon.png">
+
+    <base href="/">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.13.4.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="mainApp" ng-controller="LoginCtrl">
+
+<div class="container-fluid">
+    <br>
+
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+        <div class="row">   <!-- logo and nav tab -->
+            <img src="imgs/logoWithTitle.png" class="center-block"/>
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="" ui-sref="home">Home</a>
+                </li>
+                <li>
+                    <a href="" ui-sref="encyclopedia">Encyclopedia</a>
+                </li>
+                <li>
+                    <a href="" ui-sref="forum">Forum</a>
+                </li>
+
+                <li ng-show="authenticated" class="pull-right">
+                    <a href="" ng-click="logout()">Log out</a>
+                </li>
+
+                <li ng-show="authenticated" class="pull-right">
+                    <a href="" ui-sref="pm">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </a>
+                </li>
+                <li ng-show="authenticated" class="pull-right">
+                    <a href="" ui-sref="userProfile({username: userPrincipal.username})" ng-show="authenticated">Profile:
+                        {{userPrincipal.username}}</a>
+                </li>
+
+                <li ng-show="authenticated" class="pull-right">
+                    <a ng-show="checkAuthority('ROLE_EMPLOYEE')" ui-sref="employee">Employee panel</a>
+                </li>
+
+                <li ng-show="authenticated" class="pull-right">
+                    <a ng-show="checkAuthority('ROLE_ADMIN')" ui-sref="admin">Admin panel</a>
+                </li>
+
+                <li ng-show="!authenticated" class="pull-right">
+                    <a href="" ui-sref="login">Log in</a>
+                </li>
+                <li ng-show="!authenticated" class="pull-right">
+                    <a href="" ui-sref="registration">Sign up</a>
+                </li>
+            </ul>
+            <br/>
+        </div>
+        <div class="row">   <!-- views -->
+            <div ui-view></div>
+            <br/>
+        </div>
+        <div class="row">   <!-- footer -->
+            <br/>
+            <hr/>
+            <h5>Copyright by Damian Rutkowski &copy 2018</h5>
+        </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+
+</body>
+</html>

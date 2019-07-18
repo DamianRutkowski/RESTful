@@ -1,0 +1,43 @@
+<h3>{{weapon.name}}</h3>
+<hr />
+
+        <div>
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR_qJBxcCx7xSdrXRM7OP4-id2lnKYycRnaz06bkx5uZJJ6udFEuw"
+                 width="128" height="96">
+        </div>
+        <br />
+{{weapon.description}}
+
+<br/><br/><br/>
+<hr>
+
+<h4>Comments:</h4>
+<br/>
+<b><p ng-show="weapon.weaponComments.length == 0">There are no comments yet.</p></b><br />
+<div ng-repeat="comment in weapon.weaponComments" class="div-comments">
+    <div class="comment-header-border">
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: comment.author.username})">
+            {{comment.author.username}}
+        </a>
+
+        <p class="comment-date pull-left">
+            , {{comment.creationDate | date:'medium'}}
+        </p>
+    </div>
+
+    <br />
+    <hr class="hr-custom" />
+
+    <pre>{{comment.content}}</pre>
+    <br/> <br/>
+</div>
+<div ng-show="authenticated" ng-model="newComment">
+    <h4>Add new comment:</h4>
+    <hr/>
+    <textarea class="form-control comment-input" rows="3" ng-model="newComment.content"></textarea>
+    <br/>
+    
+    <button class="btn btn-primary pull-right" ng-click="add(newComment)">Submit</button>
+</div>
+
+

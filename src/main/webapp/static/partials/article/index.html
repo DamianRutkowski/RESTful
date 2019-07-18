@@ -1,0 +1,50 @@
+<div>
+    <h3>{{article.subject}}</h3>
+    <hr />
+    
+    <h5><b>{{article.teaser}}</b></h5>
+    <br />
+
+   {{article.content}}
+    <br /><br /><hr />
+    <a class="pull-left" href="" ui-sref="userProfile({username: article.author.username})">
+        {{article.author.firstName}} {{article.author.lastName}}
+    </a>
+<br />
+    <p class="pull-left">
+        {{article.creationDate | date:'medium'}}
+    </p>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h4>Comments:</h4>
+<br/>
+<b><p ng-show="article.articleComments.length == 0">There are no comments yet.</p></b><br />
+<div ng-repeat="comment in article.articleComments" class="div-comments">
+    <div class="comment-header-border">
+        <a class="pull-left username-link" href="" ui-sref="userProfile({username: comment.author.username})">
+            {{comment.author.username}}
+        </a>
+
+        <p class="comment-date pull-left">
+            , {{comment.creationDate | date:'medium'}}
+        </p>
+    </div>
+
+    <br />
+    <hr class="hr-custom" />
+
+    <pre>{{comment.content}}</pre>
+    <br/> <br/>
+</div>
+<div ng-show="authenticated" ng-model="newComment">
+    <h4>Add new comment:</h4>
+    <hr/>
+    <textarea class="form-control comment-input" rows="3" ng-model="newComment.content"></textarea>
+    <br/>
+    <button class="btn btn-primary pull-right" ng-click="add(newComment)">Submit</button>
+</div>

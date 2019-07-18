@@ -1,0 +1,21 @@
+<h5>
+	Edit category
+	</h5>
+	<hr />
+
+	<form ng-model="category">
+		<div class="form-group">
+			<label for="tagName">Tag name:</label> <input id="tagName"
+				class="form-control" ng-model="category.tagName">
+		</div>
+
+		<div class="form-group">
+			<label for="name">Name:</label> <input id="name" class="form-control"
+				ng-model="category.name">
+		</div>
+
+		<button class="btn btn-primary pull-right" ng-click="edit(category)">Submit</button>
+	</form>
+
+	<br />
+	<hr />

@@ -1,0 +1,27 @@
+<h5>Add weapon</h5>
+<hr />
+
+<form ng-model="newWeapon">
+    <div class="form-group">
+        <label for="tagName">Tag name:</label>
+        <input id="tagName" class="form-control" ng-model="newWeapon.tagName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" class="form-control" ng-model="newWeapon.name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <input id="description" class="form-control" ng-model="newWeapon.description">
+    </div>
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" class="form-control" ng-model="newWeapon.weaponCategory" ng-options="category.name for category in categories"></select>
+    </div>
+
+<button class="btn btn-primary pull-right" ng-click="add(newWeapon)">Submit</button>
+</form>
+
+<br />
+<hr />
